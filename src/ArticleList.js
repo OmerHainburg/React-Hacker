@@ -3,9 +3,7 @@ import "./styles.css";
 import moment from "moment";
 
 export default function ArticleList(articles) {
-  //   console.log(articles.articles);
   const articleObj = articles.posts;
-  //   console.log(articleObj);
 
   return (
     <section className="articleListsection">
