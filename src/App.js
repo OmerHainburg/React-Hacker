@@ -25,23 +25,21 @@ function App() {
   }
 
      return (
-    <div >
+    <div>
       <header className='App-header'>
+      </header>
       <ul>
          <li value="Omer" onClick={handleSubmit}><a href='./ArticleList.js' >Omer</a></li> 
-        <li onClick={() => alert(setQuery("http://hn.algolia.com/api/v1/search?query=story"))}><a href='./ArticleList.js'>Story</a></li>
+        <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=story")}><a href='./ArticleList.js'>Story</a></li>
         <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=polls")}><a href='./ArticleList.js'>Poll</a></li>
         <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=comment")}><a href='./ArticleList.js'>Comment</a></li>
         <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=pollopt")}><a href='./ArticleList.js'>Pollopt</a></li>
         <div className='paded'>
-        <input type="text" size="5" name="qty" id="qty" />
-        <button type="submit" name="add" id="add" value="Add">Search</button>
+          <input type="text"  />
+          <button type="submit" name="search" id="search" value="search">Search</button>
         </div>
-        
       </ul>
-     
         <Articles posts={posts}/>      
-      </header>
     </div>
   );
 }
