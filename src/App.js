@@ -19,9 +19,6 @@ function App() {
   })
   }, []);
 
-  const click = (value) => {
-    alert(value);
-  };
 
    return (
     <div >
