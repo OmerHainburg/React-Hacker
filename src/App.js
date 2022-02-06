@@ -6,39 +6,48 @@ import "./App.css";
 
 function App() {
   const [posts, setPosts] = useState([]); 
-  const [query, setQuery] = useState('');
+  const [url, setUrl] = useState('');
   
  
   useEffect(() => {
-    alert(query);
-    axios.get('http://hn.algolia.com/api/v1/search?query=story')
+    // eslint-disable-next-line no-useless-concat
+    let urlFinal = "http://hn.algolia.com/api/v1/search?tags=" + url;
+   // debugger;
+    console.log(urlFinal);
+    axios.get(urlFinal)
     .then((res) => {
       let input = res.data.hits;
       setPosts(input);
       console.log(input);
   })
-  }, []);
+  }, [url]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setQuery('Hello, world!');
-  }
-
-     return (
+    return (
     <div>
       <header className='App-header'>
       </header>
-      <ul>
-         <li value="Omer" onClick={handleSubmit}><a href='./ArticleList.js' >Omer</a></li> 
-        <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=story")}><a href='./ArticleList.js'>Story</a></li>
-        <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=polls")}><a href='./ArticleList.js'>Poll</a></li>
-        <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=comment")}><a href='./ArticleList.js'>Comment</a></li>
-        <li onClick={() => setQuery("http://hn.algolia.com/api/v1/search?query=pollopt")}><a href='./ArticleList.js'>Pollopt</a></li>
-        <div className='paded'>
-          <input type="text"  />
-          <button type="submit" name="search" id="search" value="search">Search</button>
+      <div className='container'>
+        <div className='App-ul'>
+          <ul>
+            <div className='App-li'>
+              <li onClick={() => setUrl("story")}>
+                Story
+              </li>
+              <li onClick={() => setUrl("poll")}>
+                Poll
+              </li>
+              <li onClick={() => setUrl("comment")}>
+                Comment
+              </li>
+              <li onClick={() => setUrl("pollopt")}>
+                Pollopt
+              </li>
+              <input type="text"  />
+              <button onClick={() => alert('Search')}>Search</button>
+            </div>
+          </ul>
         </div>
-      </ul>
+      </div>
         <Articles posts={posts}/>      
     </div>
   );

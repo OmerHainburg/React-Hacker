@@ -38,3 +38,55 @@
   }
 } */
 
+.container {
+  background-color:rgb(212, 20, 20);
+  display: flex;
+  align-items: flex-start;
+}
+
+.App-ul{
+    border: 1px solid rgb(212, 20, 20); 
+    display: flex; 
+    color: white;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.App-li {
+  display: inline-flex;
+  list-style: none;
+  width: 100px; margin: 8px;
+  gap: 15px;
+  margin-left: -33px; 
+  cursor: pointer;
+  }
+
+  .App-articlecard{
+    color: black;
+    display: inline-block;
+  }
+
+  .App-p-wrapper {
+    display: inline-block;
+    justify-content: space-between;
+    color: black;
+    gap: 30px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .APP-p-wrapper-two {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+
+/* Dotted border */
+hr.dotted {
+  border-top: 3px dotted #bbb;
+}
+  
+
+
